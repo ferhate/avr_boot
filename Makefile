@@ -43,10 +43,9 @@ $(TARGET).elf: $(OBJ)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 clean:
-	rm -rf *.o $(TARGET).elf *.eps *.bak *.a *.bin
-	rm -rf pff/src/*.o uart/*.o
-	rm -rf *.lst *.map $(EXTRA_CLEAN_FILES)
-	rm -rf $(TARGET).hex
+	rm -rf asmfunc.o asmfunc.lst diskio.o main.o
+	rm -rf pff/src/pff.o uart/uart.o
+	rm -rf $(TARGET).elf $(TARGET).lst $(TARGET).map $(TARGET).bin $(TARGET).hex
 
 size: $(TARGET).elf
 	$(SIZE) -C --mcu=$(MCU_TARGET) $(TARGET).elf
