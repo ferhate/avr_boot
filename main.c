@@ -244,7 +244,10 @@ int main (void)
 
                 checkFile();
 
-		if (pgm_read_word(0) != 0xFFFF) ((void(*)(void))0)();	  //EXIT BOOTLOADER
+		if (pgm_read_word(0) != 0xFFFF) {
+			EIND = 0;
+			((void(*)(void))0)();	  //EXIT BOOTLOADER
+		}
     
 		#if USE_UART
 			UART_puts(PSTR("retry"));
