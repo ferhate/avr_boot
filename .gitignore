@@ -9,3 +9,4 @@
 *.map
 /nbproject
 .vs
+!build/*
